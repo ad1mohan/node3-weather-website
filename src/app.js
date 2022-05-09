@@ -42,15 +42,11 @@ app.get('/help',(req,res)=>{
 app.get('/weather',(req, res)=>{
     if(!req.query.address){
         return res.send({
-            error:'Please send address'
+            error:'Please give location.'
         })
     }
     console.log(forecast(req.query.address,(msg)=>{
-        console.log(msg)
-        res.send({
-            msg,
-            place:req.query.address
-        })
+        res.send(msg)
     }))
 })
 
